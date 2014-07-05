@@ -41,6 +41,11 @@ You can also watch the video screencast I have at [http://wptheming.com/options-
 
 ## Change log
 
+#### 1.8.0.0.1
+
+* Add post types as multicheckbox option (props @kharissulistiyo)
+* Add users as multicheckbox option (props @kharissulistiyo)
+
 #### 1.8.0
 
 * Fix for colorpicker spacing
