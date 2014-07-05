@@ -38,6 +38,9 @@ function optionsframework_options() {
 
 	}
 
+	// Get all post types
+	$get_post_types = get_post_types( array('public' => true), 'names' );
+
 
 	// Test data
 	$test_array = array(
@@ -287,6 +290,13 @@ function optionsframework_options() {
 		'id' => 'users',
 		'type' => 'multicheck',
 		'options' => $users_data);
+
+	$options[] = array(
+		'name' => __('Post Types', 'options_framework_theme'),
+		'desc' => __('Select post type(s).', 'options_framework_theme'),
+		'id' => 'posttype',
+		'type' => 'multicheck',
+		'options' => $get_post_types);
 
 	$options[] = array(
 		'name' => __('Text Editor', 'options_framework_theme'),
