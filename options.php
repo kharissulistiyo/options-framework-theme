@@ -27,6 +27,18 @@ function optionsframework_option_name() {
 
 function optionsframework_options() {
 
+	// Get all users data
+	$users = get_users(array( 'fields' => array( 'ID', 'display_name' ) ));
+
+	$users_data = array();
+
+	foreach($users as $user){
+
+		$users_data[$user->ID] = $user->display_name;
+
+	}
+
+
 	// Test data
 	$test_array = array(
 		'one' => __('One', 'options_framework_theme'),
@@ -268,6 +280,13 @@ function optionsframework_options() {
 		'std' => $typography_defaults,
 		'type' => 'typography',
 		'options' => $typography_options );
+
+	$options[] = array(
+		'name' => __('Users', 'options_framework_theme'),
+		'desc' => __('Select user(s).', 'options_framework_theme'),
+		'id' => 'users',
+		'type' => 'multicheck',
+		'options' => $users_data);
 
 	$options[] = array(
 		'name' => __('Text Editor', 'options_framework_theme'),
