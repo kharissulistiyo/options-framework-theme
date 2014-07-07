@@ -122,6 +122,10 @@ function optionsframework_options() {
 		'type' => 'heading');
 
 	$options[] = array(
+		'name' => __('Group 1', 'options_framework_theme'),
+		'type' => 'group_open');
+
+	$options[] = array(
 		'name' => __('Input Text Mini', 'options_framework_theme'),
 		'desc' => __('A mini text input field.', 'options_framework_theme'),
 		'id' => 'example_text_mini',
@@ -137,6 +141,13 @@ function optionsframework_options() {
 		'type' => 'text');
 
 	$options[] = array(
+		'type' => 'group_close');
+
+	$options[] = array(
+		'name' => __('Group 2', 'options_framework_theme'),
+		'type' => 'group_open');
+
+	$options[] = array(
 		'name' => __('Input with Placeholder', 'options_framework_theme'),
 		'desc' => __('A text input field with an HTML5 placeholder.', 'options_framework_theme'),
 		'id' => 'example_placeholder',
@@ -149,6 +160,9 @@ function optionsframework_options() {
 		'id' => 'example_textarea',
 		'std' => 'Default Text',
 		'type' => 'textarea');
+
+	$options[] = array(
+		'type' => 'group_close');
 
 	$options[] = array(
 		'name' => __('Input Select Small', 'options_framework_theme'),

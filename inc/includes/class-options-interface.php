@@ -60,7 +60,7 @@ class Options_Framework_Interface {
 			$output = '';
 
 			// Wrap all options
-			if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) ) {
+			if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) && ( $value['type'] != "group_open" ) && ( $value['type'] != "group_close" ) ) {
 
 				// Keep all ids lowercase with no spaces
 				$value['id'] = preg_replace('/[^a-zA-Z0-9._\-]/', '', strtolower($value['id']) );
@@ -398,7 +398,7 @@ class Options_Framework_Interface {
 			case "heading":
 				$counter++;
 				if ( $counter >= 2 ) {
-					$output .= '</div>'."\n";
+					$output .= '</div><!-- /.group -->'."\n";
 				}
 				$class = '';
 				$class = ! empty( $value['id'] ) ? $value['id'] : $value['name'];
@@ -406,9 +406,30 @@ class Options_Framework_Interface {
 				$output .= '<div id="options-group-' . $counter . '" class="group ' . $class . '">';
 				$output .= '<h3>' . esc_html( $value['name'] ) . '</h3>' . "\n";
 				break;
+
+
+
+			case "group_open":
+
+				$output .= '<div class="section-group section">';
+				$output .= '<h2 class="group-setting">'. esc_html($value['name']).'</h2>';
+
+				break;
+
+
+			case "group_close":
+
+				$output .= '</div><!-- /.section-group -->';
+
+				break;
+
+
 			}
 
-			if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) ) {
+
+
+
+			if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) && ( $value['type'] != "group_open" ) && ( $value['type'] != "group_close" ) ) {
 				$output .= '</div>';
 				if ( ( $value['type'] != "checkbox" ) && ( $value['type'] != "editor" ) ) {
 					$output .= '<div class="explain">' . wp_kses( $explain_value, $allowedtags) . '</div>'."\n";

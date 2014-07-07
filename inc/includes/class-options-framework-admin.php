@@ -182,26 +182,44 @@ class Options_Framework_Admin {
 		<?php $menu = $this->menu_settings(); ?>
 		<h2><?php echo esc_html( $menu['page_title'] ); ?></h2>
 
-	    <h2 class="nav-tab-wrapper">
+      <?php echo apply_filters('nav_tab_wrapper_starts', '<h2 class="nav-tab-wrapper">'); ?>
 	        <?php echo Options_Framework_Interface::optionsframework_tabs(); ?>
-	    </h2>
+	    <?php echo apply_filters('nav_tab_wrapper_ends', '</h2>'); ?>
 
 	    <?php settings_errors( 'options-framework' ); ?>
 
-	    <div id="optionsframework-metabox" class="metabox-holder">
-		    <div id="optionsframework" class="postbox">
-				<form action="options.php" method="post">
-				<?php settings_fields( 'optionsframework' ); ?>
-				<?php Options_Framework_Interface::optionsframework_fields(); /* Settings */ ?>
-				<div id="optionsframework-submit">
-					<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options', 'textdomain' ); ?>" />
-					<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'textdomain' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!', 'textdomain' ) ); ?>' );" />
-					<div class="clear"></div>
-				</div>
-				</form>
-			</div> <!-- / #container -->
-		</div>
+      <?php
+      $html = '<div id="optionsframework-metabox" class="metabox-holder">';
+      $html .= '<div id="optionsframework" class="postbox">';
+
+      echo apply_filters('options_body_starts' , $html);
+
+      ?>
+
+  				<form action="options.php" method="post">
+
+
+            <?php do_action('options_form_header'); ?>
+
+    				<?php settings_fields( 'optionsframework' ); ?>
+
+    				<?php Options_Framework_Interface::optionsframework_fields(); /* Settings */ ?>
+
+            <?php do_action('options_form_footer'); ?>
+
+  				</form>
+
+      <?php
+      $html = '</div> <!-- / #container -->';
+      $html = '</div>';
+
+      echo apply_filters('options_body_ends' , $html);
+
+      ?>
+
+
 		<?php do_action( 'optionsframework_after' ); ?>
+
 		</div> <!-- / .wrap -->
 
 	<?php

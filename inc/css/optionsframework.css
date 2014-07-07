@@ -222,3 +222,18 @@
 #optionsframework .section:after {
 	clear: both;
 }
+
+/* Section Group */
+
+.section-group{
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 30px !important;
+}
+
+.section-group .section{
+  padding: 0 !important;
+}
+
+.section-group .group-setting{
+  font-size: 18px;
+}

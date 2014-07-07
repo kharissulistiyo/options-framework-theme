@@ -52,3 +52,41 @@ function prefix_options_menu_filter( $menu ) {
 
 add_filter( 'optionsframework_menu', 'prefix_options_menu_filter' );
 */
+
+
+function nav_wrap_starts_custom(){
+
+	echo '<h2 class="nav-tab-wrapper custom">';
+
+}
+
+add_filter('nav_tab_wrapper_starts', 'nav_wrap_starts_custom');
+
+
+function nav_wrap_ends_custom(){
+
+	echo '</h2>';
+
+}
+
+add_filter('nav_tab_wrapper_ends', 'nav_wrap_ends_custom');
+
+
+/**
+ * New actions :
+	* options_form_header : class-options-framework-admin.php
+	* options_form_footer : class-options-framework-admin.php
+
+*/
+
+function options_reset_save_buttons(){ ?>
+
+<div id="optionsframework-submit">
+	<input type="submit" class="button-primary" name="update" value="<?php esc_attr_e( 'Save Options', 'textdomain' ); ?>" />
+	<input type="submit" class="reset-button button-secondary" name="reset" value="<?php esc_attr_e( 'Restore Defaults', 'textdomain' ); ?>" onclick="return confirm( '<?php print esc_js( __( 'Click OK to reset. Any theme settings will be lost!', 'textdomain' ) ); ?>' );" />
+	<div class="clear"></div>
+</div>
+
+<?php }
+
+add_action('options_form_footer', 'options_reset_save_buttons');
