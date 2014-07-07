@@ -404,7 +404,7 @@ class Options_Framework_Interface {
 				$class = ! empty( $value['id'] ) ? $value['id'] : $value['name'];
 				$class = preg_replace('/[^a-zA-Z0-9._\-]/', '', strtolower($class) );
 				$output .= '<div id="options-group-' . $counter . '" class="group ' . $class . '">';
-				$output .= '<h3>' . esc_html( $value['name'] ) . '</h3>' . "\n";
+				$output .= '<h3>' . esc_html( $value['name'] ) . do_action('group_heading_content') . '</h3>' . "\n";
 				break;
 
 
@@ -412,7 +412,7 @@ class Options_Framework_Interface {
 			case "group_open":
 
 				$output .= '<div class="section-group section">';
-				$output .= '<h2 class="group-setting">'. esc_html($value['name']).'</h2>';
+				$output .= '<h2 class="group-heading">'. esc_html($value['name']).'</h2>';
 
 				break;
 

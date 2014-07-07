@@ -138,7 +138,9 @@ class Options_Framework_Admin {
 	        return;
 
 		wp_enqueue_style( 'optionsframework', OPTIONS_FRAMEWORK_DIRECTORY . 'css/optionsframework.css', array(),  Options_Framework::VERSION );
-		wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_style( 'optionstheme_dark', OPTIONS_FRAMEWORK_DIRECTORY . 'css/optptionstheme_dark.css', array(),  Options_Framework::VERSION );
+
+    wp_enqueue_style( 'wp-color-picker' );
 	}
 
 	/**
@@ -180,7 +182,10 @@ class Options_Framework_Admin {
 		<div id="optionsframework-wrap" class="wrap">
 
 		<?php $menu = $this->menu_settings(); ?>
-		<h2><?php echo esc_html( $menu['page_title'] ); ?></h2>
+
+		<h2 id="page-title"><?php echo esc_html( $menu['page_title'] ); ?></h2>
+
+    <?php do_action( 'optionsframework_before' ); ?>
 
       <?php echo apply_filters('nav_tab_wrapper_starts', '<h2 class="nav-tab-wrapper">'); ?>
 	        <?php echo Options_Framework_Interface::optionsframework_tabs(); ?>

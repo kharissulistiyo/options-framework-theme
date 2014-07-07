@@ -1,0 +1,144 @@
+// Mixins
+
+// Color
+
+$background : #333333;
+$nav_bg : $background;
+$nav_bg_hover : #444444;
+$nav_bg_active : $nav_bg_hover;
+$nav_color : #ffffff;
+$nav_border_color : #666666;
+$border_color : #dddddd;
+
+
+#page-title{
+  margin-bottom: 10px;
+}
+
+#secondary-wrap{
+
+  max-width: 85%;
+  background: $background;
+  border: 1px solid #ccc;
+
+  &:before,
+  &:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .nav-tab-wrapper{
+    width: 20%;
+    float: left;
+    padding: 0;
+    border-bottom: none !important;
+
+    a{
+      display: block;
+      margin: 0;
+      font-weight: normal;
+      border-left: none;
+      border-right: none;
+      background-color: $nav_bg;
+      border-top: none !important;
+      border-bottom: 1px solid $nav_border_color !important;
+      color: $nav_color;
+
+      &:first-child{
+        border-top: none;
+      }
+
+      &.nav-tab-active{
+        font-weight: normal;
+        background-color: $nav_bg_active;
+      }
+
+      &:hover{
+        background-color: $nav_bg_hover;
+      }
+
+    }
+
+  }
+
+  #optionsframework-metabox{
+    width: 79.8%;
+    float: right;
+    padding-top: 0;
+    border-left: 1px solid #ccc;
+
+    .postbox{
+      margin-bottom: 0;
+    }
+
+  }
+
+
+}
+
+.section-group{
+  background: #f7f7f7;
+  margin: 20px;
+  border: 1px solid $border_color;
+  border-radius: 3px;
+
+  .section{
+
+    &:before,
+    &:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .heading{
+      width: 30%;
+      float: left;
+      padding: 10px 0;
+      margin: 0;
+    }
+
+    .option{
+      width: 70%;
+      float: right;
+      padding: 5px 0 15px 0;
+    }
+
+    .controls, .explain{
+      display: block;
+      width: 100%;
+    }
+
+    .controls{
+      margin-bottom: 7px;
+    }
+
+    .explain{
+      font-style: italic;
+      font-size: 14px !important;
+    }
+
+  }
+
+}
+
+h2.group-heading{
+  margin: 0 0 10px 0;
+  padding: 0 0 10px 0;
+  line-height: 20px;
+  border-bottom: 1px solid $border_color;
+}
+
+
+// Media Queries
+
+@media only screen and (max-width:1199px){
+
+  #secondary-wrap{
+
+    max-width: 100%;
+
+  }
+
+}

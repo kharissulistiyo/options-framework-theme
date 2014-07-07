@@ -1,0 +1,77 @@
+#page-title {
+  margin-bottom: 10px; }
+
+#secondary-wrap {
+  max-width: 85%;
+  background: #333333;
+  border: 1px solid #ccc; }
+  #secondary-wrap:before, #secondary-wrap:after {
+    content: '';
+    display: block;
+    clear: both; }
+  #secondary-wrap .nav-tab-wrapper {
+    width: 20%;
+    float: left;
+    padding: 0;
+    border-bottom: none !important; }
+    #secondary-wrap .nav-tab-wrapper a {
+      display: block;
+      margin: 0;
+      font-weight: normal;
+      border-left: none;
+      border-right: none;
+      background-color: #333333;
+      border-top: none !important;
+      border-bottom: 1px solid #666666 !important;
+      color: white; }
+      #secondary-wrap .nav-tab-wrapper a:first-child {
+        border-top: none; }
+      #secondary-wrap .nav-tab-wrapper a.nav-tab-active {
+        font-weight: normal;
+        background-color: #444444; }
+      #secondary-wrap .nav-tab-wrapper a:hover {
+        background-color: #444444; }
+  #secondary-wrap #optionsframework-metabox {
+    width: 79.8%;
+    float: right;
+    padding-top: 0;
+    border-left: 1px solid #ccc; }
+    #secondary-wrap #optionsframework-metabox .postbox {
+      margin-bottom: 0; }
+
+.section-group {
+  background: #f7f7f7;
+  margin: 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px; }
+  .section-group .section:before, .section-group .section:after {
+    content: '';
+    display: block;
+    clear: both; }
+  .section-group .section .heading {
+    width: 30%;
+    float: left;
+    padding: 10px 0;
+    margin: 0; }
+  .section-group .section .option {
+    width: 70%;
+    float: right;
+    padding: 5px 0 15px 0; }
+  .section-group .section .controls, .section-group .section .explain {
+    display: block;
+    width: 100%; }
+  .section-group .section .controls {
+    margin-bottom: 7px; }
+  .section-group .section .explain {
+    font-style: italic;
+    font-size: 14px !important; }
+
+h2.group-heading {
+  margin: 0 0 10px 0;
+  padding: 0 0 10px 0;
+  line-height: 20px;
+  border-bottom: 1px solid #dddddd; }
+
+@media only screen and (max-width: 1199px) {
+  #secondary-wrap {
+    max-width: 100%; } }

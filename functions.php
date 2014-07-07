@@ -76,8 +76,28 @@ add_filter('nav_tab_wrapper_ends', 'nav_wrap_ends_custom');
  * New actions :
 	* options_form_header : class-options-framework-admin.php
 	* options_form_footer : class-options-framework-admin.php
+	* optionsframework_before : class-options-framework-admin.php
+	* group_heading_content : class-options-interface.php
 
 */
+
+
+function options_secondary_wrap_starts(){
+
+	echo '<div id="secondary-wrap">';
+
+}
+
+add_action('optionsframework_before', 'options_secondary_wrap_starts');
+
+function options_secondary_wrap_ends(){
+
+	echo '</div><!-- /#secondary-wrap -->';
+
+}
+
+add_action('optionsframework_after', 'options_secondary_wrap_ends');
+
 
 function options_reset_save_buttons(){ ?>
 
